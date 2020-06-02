@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block container %}
+    <section class="mt-3 pb-5">
+      {% for key, value in tours.items() %}
+        {% if key == id %}
+      <h1 class="display-3 mt-4">{{ value.title }}</h1>
+      <!-- HERO -->
+      <p class="lead">{{ value.nights }} ночей</p>
+      <p>Стоимость: {{ value.price }} Р</p>
+      <img src= {{ value.picture }} class="w-75" alt="">
+      <p class="my-4 w-75">{{ vgit remotealue.description }}</p>
+      <a href="#" class="btn btn-success btn-lg">Купить тур за {{ value.price }}</a>
+       {% endif %}
+    {% endfor %}
+    </section>
+{% endblock %}

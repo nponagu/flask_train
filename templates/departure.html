@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block container %}
+
+
+    <h1 class="display-5 mt-4">Туры {{ departures[departure] }}:</h1>
+    <p class="mb-4">Найдено 15 туров, от 26 000 до 84 600 и от 4 ночей до 15 ночей</p>
+
+    <!-- CARDS -->
+    <div class="row mt-5">
+      {% for key, value in tours.items() %}
+          {% if value.departure ==  departure%}
+      <div class="col-4">
+        <div class="card mb-4">
+          <img src={{ value.picture }} class="card-img-top img-fluid" alt="">
+          <div class="card-body">
+            <h2 class="h5 card-title">{{ value.country }}:</h2>
+            <p class="card-text">{{ value.description }}</p>
+            <a href="/tours/{{ key }}/" class="btn btn-sm btn-primary">{{ value.title ~ ' ' ~ value.stars ~ '*' }}</a>
+          </div>
+        </div>
+      </div>
+          {% endif %}
+      {% endfor %}
+    </div>
+{% endblock %}
